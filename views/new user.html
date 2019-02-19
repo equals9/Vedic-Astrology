@@ -1,0 +1,144 @@
+<div class="row">
+
+	<div class="col-md-auto">
+		<h3>New Client <small class="text-muted">Vedic Astrology</small></h3>
+	</div>
+		
+	<div class="w-100"></div>
+
+	<div class="col-md-auto">
+		<!-- Back Button -->
+		<button type="button" class="btn btn-outline-primary">
+			<a href="#/!" class="text-dark">Back</a>
+		</button>
+	</div>
+		
+</div>
+
+
+	<!-- New Client Form -->
+<div class="row justify-content-md-center m-sm-4" ng-controller="NewUser">
+	<form class="was-validated" novalidate>
+		<div class="form-row">
+
+			<!-- First Name -->
+			<div class="form-group col-md-6">
+				<label for="InputFirstName">First Name</label>
+				<input type="text" class="form-control" placeholder="First Name" ng-model="firstname" required>
+				<div class="invalid-feedback">
+        			Please enter first name
+      			</div>
+			</div>
+				
+			<!-- Last Name -->
+			<div class="form-group col-md-6">
+				<label for="InputLastName">Last Name</label>
+				<input type="text" class="form-control" placeholder="Last Name" ng-model="lastname" required>
+				<div class="invalid-feedback">
+        			Please enter last name
+      			</div>
+			</div>
+
+		</div>
+
+		<div class="form-row">
+			<!-- Date of Birth -->
+			<div class="form-group col-md-auto">
+				<label for="DateOfBirth">Date of Birth</label>
+				<input type="date" class="form-control" ng-model="dateofbirth" required>
+				<div class="invalid-feedback">
+        			Please enter or choose date
+      			</div>
+			</div>
+
+			<!-- Time of birth-->
+			<div class="form-group col-md-auto">
+				<label for="TimeOfBirth">Time Of Birth</label>
+
+				<div class="form-row">
+					<div class="form-group col-md-auto">
+						<input type="number" placeholder="HH" min="00" max="24" ng-model="hofbirth">
+					</div>
+
+					<div class="form-group col-md-auto">
+						<input type="number" placeholder="MM" min="00" max="60" ng-model="mofbirth">
+					</div>
+
+					<div class="form-group col-md-auto">
+						<input type="number" placeholder="SS" min="00" max="60" ng-model="sofbirth">
+					</div>
+				</div>
+			</div>
+
+			<!-- Place of birth -->
+			<div class="form-group col-md-auto">
+				<label for="PlaceOfBirth">Place Of Birth</label>
+				<input type="text" class="form-control" placeholder="Place of birth" ng-model="placeofbirth" required>
+				<div class="invalid-feedback">
+        			Please enter a place
+      			</div>
+			</div>
+
+		</div>
+
+		<div class="form-row">
+			<!-- Client Approach Date -->
+			<div class="form-group col-md-auto">
+				<label for="ApproachDate">Approach Date</label>
+				<input type="date" class="form-control" ng-model="approachdate" required>
+				<div class="invalid-feedback">
+        			Please enter or choose date
+      			</div>
+			</div>
+
+			<!-- Client Approach Time -->
+			<div class="form-group col-md-auto">
+				<label for="TimeOfBirth">Approach Time</label>
+
+				<div class="form-row">
+					<div class="form-group col-md-auto">
+						<input type="number" placeholder="HH" min="00" max="24" ng-model="hofapproach">
+					</div>
+
+					<div class="form-group col-md-auto">
+						<input type="number" placeholder="MM" min="00" max="60" ng-model="mofapproach">
+					</div>
+
+					<div class="form-group col-md-auto">
+						<input type="number" placeholder="SS" min="00" max="60" ng-model="sofapproach">
+					</div>
+				</div>
+			</div>
+
+			<!-- Client Approach Place -->
+			<div class="form-group col-md-auto">
+				<label for="ApproachDate">Approach Place</label>
+				<input type="text" class="form-control" placeholder="Approach Place" ng-model="approachplace" required>
+				<div class="invalid-feedback">
+        			Please enter a place
+      			</div>
+			</div>
+
+		</div>
+			
+		<div class="form-row">
+			<label for="QuestionAsked">Question Asked</label>
+		</div>
+
+		<div class="form-row">
+			<!-- Questions -->
+			<textarea name="QuestionAsked" placeholder="Enter the question here" rows="12" class="form-control" ng-model="question" required></textarea>
+			<div class="invalid-feedback">
+      			Please enter the question above
+    		</div>
+		</div>
+
+		<div class="form-row m-2 justify-content-md-between">
+			<!--Next Button -->
+			<button type="button" ng-click="insert_user_info()" class="btn btn-outline-primary text-dark">
+				<a href="#!complete new user">Next</a>
+			</button>
+		</div>
+
+	</form>
+</div>

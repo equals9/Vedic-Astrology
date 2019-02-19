@@ -1,0 +1,73 @@
+<!-- Home Page -->
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Vedic Astrology</title>
+
+
+	<!-- Style -->
+	<link rel="stylesheet" type="text/css" href="bootstrap/bootstrap-4.3.0-dist/css/bootstrap.css"> 
+
+	<!-- Jquery -->
+	<script src="jquery/jquery.js"></script>
+
+	<!-- Bootstrap js -->
+  	<script src="bootstrap/bootstrap-4.3.0-dist/js/bootstrap.js"></script>
+		
+
+	<!-- Vendors -->
+	<script src="js/vendor/angular.js"></script>
+	<script src="js/vendor/angular-route.js"></script>
+
+	<!-- App --> 
+	<script src="js/app.js"></script>
+
+	<!-- Directives -->
+	<script src="js/directives/header.js"></script>
+	<script src="js/directives/footer.js"></script>
+	<script src="js/directives/planets.js"></script>
+	<script src="js/directives/house_under_operation.js"></script>
+	<script src="js/directives/planet_info.js"></script>
+
+	<!-- Controllers -->
+	<script src="js/controllers/MainController.js"></script>
+	<script src="js/controllers/NewUser.js"></script>
+
+</head>
+
+
+<body ng-app="Vedic_Astrology">
+
+	<div class="main" ng-controller="MainController">
+		<div class="container-fluid">
+
+			<!-- Header -->
+			<div class="row">
+				<div class="col-sm-12">
+					<header-tag></header-tag>
+				</div>
+			</div>
+			
+			<!-- Body -->
+			<div class="row">
+				<div class="col-md-12">
+					<div ng-view></div>
+				</div>
+			</div>
+
+
+			<!-- Footer -->
+			<div class="row">
+				<div class="col-sm-12">
+					<footer-tag></footer-tag>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
