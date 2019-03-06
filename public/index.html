@@ -7,6 +7,26 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Vedic Astrology</title>
 
+	<!-- Firebase Code -->
+	<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
+
+	<!-- Database -->
+	<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-database.js"></script>
+
+	<script>
+  		// Initialize Firebase
+  		var config = {
+    	apiKey: "AIzaSyBnC9hBf2zFV1iVnbKR_ewuKZJfQPW9AUY",
+    	authDomain: "vedic-astrology-v1.firebaseapp.com",
+    	databaseURL: "https://vedic-astrology-v1.firebaseio.com",
+    	projectId: "vedic-astrology-v1",
+    	storageBucket: "vedic-astrology-v1.appspot.com",
+    	messagingSenderId: "482810120093"
+  	};
+  	firebase.initializeApp(config);
+  	// Get a reference to the database service
+  	var database = firebase.database();
+	</script>
 
 	<!-- Style -->
 	<link rel="stylesheet" type="text/css" href="bootstrap/bootstrap-4.3.0-dist/css/bootstrap.css"> 
@@ -33,8 +53,13 @@
 	<script src="js/directives/planet_info.js"></script>
 
 	<!-- Controllers -->
+	<script src="js/controllers/ShowUsers.js"></script>
 	<script src="js/controllers/MainController.js"></script>
 	<script src="js/controllers/NewUser.js"></script>
+	<script src="js/controllers/PlanetInfo.js"></script>
+
+	<!-- Services -->
+	<script src="js/services/user_var.js"></script>
 
 </head>
 

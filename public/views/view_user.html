@@ -1,0 +1,404 @@
+<div class="row">
+
+	<div class="col-md-auto">
+		<h3>View User Info <small class="text-muted">Vedic Astrology</small></h3>
+	</div>
+		
+	<div class="w-100"></div>
+
+	<div class="col-md-auto">
+		<!-- Back Button -->
+		<button type="button" class="btn btn-outline-primary">
+			<a href="#/!" class="text-dark">Back</a>
+		</button>
+	</div>
+		
+</div>
+
+<div ng-controller="ShowUsers">
+	
+<div class="row justify-content-center m-3">
+
+	<div class="pr-3">
+		<h4>Select Name: </h4>
+	</div>
+	<div>
+
+		<select class="custom-select" name="user_name" ng-model="selected_user" ng-change="current_user()" ng-options="(user_data[key].last_name + ', ' + user_data[key].first_name + ' <' + user_data[key].email_id + '>') for key in keys">
+		<option value="">Select User</option>
+		</select>
+	</div>
+</div>
+
+<div class="row justify-content-center">
+			<div class="container">
+
+			<div class="row">
+				<div class="col">Name: {{user_data[selected_user].last_name}}, {{user_data[selected_user].first_name}}</div>
+				<div class="col">Email: {{user_data[selected_user].email_id}}</div>
+				<div class="col">Ph No.: {{user_data[selected_user].ph_no}}</div>
+			</div>
+			<br>
+			 <div class="row">
+				<div class="col">Birth Date: {{user_data[selected_user].date_of_birth.month + "/" + user_data[selected_user].date_of_birth.day + "/" + user_data[selected_user].date_of_birth.year}}</div>
+				<div class="col">Birth Time: {{user_data[selected_user].time_of_birth.hour + ":" + user_data[selected_user].time_of_birth.minute + ":" + user_data[selected_user].time_of_birth.second}}</div>
+				<div class="col">Birth Place: {{user_data[selected_user].place_of_birth}}</div>
+			</div>
+
+			<br><br>
+			<div class="row">
+				Planetery Information:
+			</div>
+			<br>
+			
+
+			<div ng-repeat="key in planet_key">
+				<div class="accordion m-3" id="accordionPlanet">
+				  <div class="card">
+				    <div class="card-header" id="heading{{key}}">
+				      <h2 class="mb-0">
+				        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{key}}" aria-controls="collapse{{key}}">
+				          {{planet_data[selected_user][key].approach_date.month}}/{{planet_data[selected_user][key].approach_date.day}}/{{planet_data[selected_user][key].approach_date.year}} | {{planet_data[selected_user][key].approach_time.hour}}:{{planet_data[selected_user][key].approach_time.minute}}:{{planet_data[selected_user][key].approach_time.second}} | {{planet_data[selected_user][key].approach_place}}
+				        </button>
+				      </h2>
+				    </div>
+
+				    <div id="collapse{{key}}" class="collapse" aria-labelledby="heading{{key}}" data-parent="#accordionPlanet">
+				      <div class="card-body">
+						
+						
+						<div class="row">
+							<div class="col">Approach Date: {{planet_data[selected_user][key].approach_date.month}}/{{planet_data[selected_user][key].approach_date.day}}/{{planet_data[selected_user][key].approach_date.year}} </div>
+							<div class="col">Approach Time: {{planet_data[selected_user][key].approach_time.hour}}:{{planet_data[selected_user][key].approach_time.minute}}:{{planet_data[selected_user][key].approach_time.second}}</div>
+							<div class="col">Approach Place: {{planet_data[selected_user][key].approach_place}}</div>
+						</div> 
+						<br>
+						<div class="row">
+							<div class="col">Question Asked: {{planet_data[selected_user][key].question_asked}}<p><p></div>
+						</div>
+
+						<br><hr><br>
+						
+						<!--Langa -->	
+				      		<div class="row">
+							<div class="col">Lagna RL: {{planet_data[selected_user][key].lagnaRL}}</div>
+							<div class="col">Lagna NL: {{planet_data[selected_user][key].lagnaNL}}</div>
+							<div class="col">Lagna SL: {{planet_data[selected_user][key].lagnaSL}}</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Lagna MD: {{planet_data[selected_user][key].lagnaMD}}</div>
+
+								<div class="col">Lagna MD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].lagnaMD_house">{{house}} ,</div>
+								</div>
+							
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Lagna AD: {{planet_data[selected_user][key].lagnaAD}}</div>
+							<div class="col">Lagna AD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].lagnaAD_house">{{house}} ,</div></div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Lagna PD: {{planet_data[selected_user][key].lagnaPD}}</div>
+							<div class="col">Lagna PD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].lagnaPD_house">{{house}} ,</div></div>
+						</div>
+						<br>
+						<div class="row">
+							Lagna Comment: {{planet_data[selected_user][key].lagna_comment}}
+						</div>
+						<br><hr><br>
+
+						<!--Sun -->
+
+							<div class="row">
+							<div class="col">Sun RL: {{planet_data[selected_user][key].sunRL}}</div>
+							<div class="col">Sun NL: {{planet_data[selected_user][key].sunNL}}</div>
+							<div class="col">Sun SL: {{planet_data[selected_user][key].sunSL}}</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Sun MD: {{planet_data[selected_user][key].sunMD}}</div>
+
+								<div class="col">Sun MD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].sunMD_house">{{house}} ,</div>
+								</div>
+							
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Sun AD: {{planet_data[selected_user][key].sunAD}}</div>
+							<div class="col">Sun AD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].sunAD_house">{{house}} ,</div></div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Sun PD: {{planet_data[selected_user][key].sunPD}}</div>
+							<div class="col">Sun PD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].sunPD_house">{{house}} ,</div></div>
+						</div>
+						<br>
+						<div class="row">
+							Sun Comment: {{planet_data[selected_user][key].sun_comment}}
+						</div>
+						<br><hr><br>
+
+
+						<!--Moon -->
+							<div class="row">
+							<div class="col">Moon RL: {{planet_data[selected_user][key].moonRL}}</div>
+							<div class="col">Moon NL: {{planet_data[selected_user][key].moonNL}}</div>
+							<div class="col">Moon SL: {{planet_data[selected_user][key].moonSL}}</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Moon MD: {{planet_data[selected_user][key].moonMD}}</div>
+
+								<div class="col">Moon MD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].moonMD_house">{{house}} ,</div>
+								</div>
+							
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Moon AD: {{planet_data[selected_user][key].moonAD}}</div>
+							<div class="col">Moon AD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].moonAD_house">{{house}} ,</div></div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Moon PD: {{planet_data[selected_user][key].moonPD}}</div>
+							<div class="col">Moon PD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].moonPD_house">{{house}} ,</div></div>
+						</div>
+						<br>
+						<div class="row">
+							Moon Comment: {{planet_data[selected_user][key].moon_comment}}
+						</div>
+						<br><hr><br>
+
+						<!--Mars -->
+							<div class="row">
+							<div class="col">Mars RL: {{planet_data[selected_user][key].marsRL}}</div>
+							<div class="col">Mars NL: {{planet_data[selected_user][key].marsNL}}</div>
+							<div class="col">Mars SL: {{planet_data[selected_user][key].marsSL}}</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Mars MD: {{planet_data[selected_user][key].marsMD}}</div>
+
+								<div class="col">Mars MD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].marsMD_house">{{house}} ,</div>
+								</div>
+							
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Mars AD: {{planet_data[selected_user][key].marsAD}}</div>
+							<div class="col">Mars AD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].marsAD_house">{{house}} ,</div></div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Mars PD: {{planet_data[selected_user][key].marsPD}}</div>
+							<div class="col">Mars PD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].marsPD_house">{{house}} ,</div></div>
+						</div>
+						<br>
+						<div class="row">
+							Mars Comment: {{planet_data[selected_user][key].mars_comment}}
+						</div>
+						<br><hr><br>
+
+
+						<!--Mercury -->
+							<div class="row">
+							<div class="col">Mercury RL: {{planet_data[selected_user][key].mercuryRL}}</div>
+							<div class="col">Mercury NL: {{planet_data[selected_user][key].mercuryNL}}</div>
+							<div class="col">Mercury SL: {{planet_data[selected_user][key].mercurySL}}</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Mercury MD: {{planet_data[selected_user][key].mercuryMD}}</div>
+
+								<div class="col">Mercury MD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].mercuryMD_house">{{house}} ,</div>
+								</div>
+							
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Mercury AD: {{planet_data[selected_user][key].mercuryAD}}</div>
+							<div class="col">Mercury AD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].mercuryAD_house">{{house}} ,</div></div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Mercury PD: {{planet_data[selected_user][key].mercuryPD}}</div>
+							<div class="col">Mercury PD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].mercuryPD_house">{{house}} ,</div></div>
+						</div>
+						<br>
+						<div class="row">
+							Mercury Comment: {{planet_data[selected_user][key].mercury_comment}}
+						</div>
+						<br><hr><br>
+
+						<!--Jupiter -->
+							<div class="row">
+							<div class="col">Jupiter RL: {{planet_data[selected_user][key].jupiterRL}}</div>
+							<div class="col">Jupiter NL: {{planet_data[selected_user][key].jupiterNL}}</div>
+							<div class="col">Jupiter SL: {{planet_data[selected_user][key].jupiterSL}}</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Jupiter MD: {{planet_data[selected_user][key].jupiterMD}}</div>
+
+								<div class="col">Jupiter MD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].jupiterMD_house">{{house}} ,</div>
+								</div>
+							
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Jupiter AD: {{planet_data[selected_user][key].jupiterAD}}</div>
+							<div class="col">Jupiter AD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].jupiterAD_house">{{house}} ,</div></div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Jupiter PD: {{planet_data[selected_user][key].jupiterPD}}</div>
+							<div class="col">Jupiter PD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].jupiterPD_house">{{house}} ,</div></div>
+						</div>
+						<br>
+						<div class="row">
+							Jupiter Comment: {{planet_data[selected_user][key].jupiter_comment}}
+						</div>
+						<br><hr><br>
+
+						<!--Venus -->
+							
+							<div class="row">
+							<div class="col">Venus RL: {{planet_data[selected_user][key].venusRL}}</div>
+							<div class="col">Venus NL: {{planet_data[selected_user][key].venusNL}}</div>
+							<div class="col">Venus SL: {{planet_data[selected_user][key].venusSL}}</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Venus MD: {{planet_data[selected_user][key].venusMD}}</div>
+
+								<div class="col">Venus MD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].venusMD_house">{{house}} ,</div>
+								</div>
+							
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Venus AD: {{planet_data[selected_user][key].venusAD}}</div>
+							<div class="col">Venus AD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].venusAD_house">{{house}} ,</div></div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Venus PD: {{planet_data[selected_user][key].venusPD}}</div>
+							<div class="col">Venus PD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].venusPD_house">{{house}} ,</div></div>
+						</div>
+						<br>
+						<div class="row">
+							Venus Comment: {{planet_data[selected_user][key].venus_comment}}
+						</div>
+						<br><hr><br>
+
+						<!--Saturn -->
+							<div class="row">
+							<div class="col">Saturn RL: {{planet_data[selected_user][key].saturnRL}}</div>
+							<div class="col">Saturn NL: {{planet_data[selected_user][key].saturnNL}}</div>
+							<div class="col">Saturn SL: {{planet_data[selected_user][key].saturnSL}}</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Saturn MD: {{planet_data[selected_user][key].saturnMD}}</div>
+
+								<div class="col">Saturn MD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].saturnMD_house">{{house}} ,</div>
+								</div>
+							
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Saturn AD: {{planet_data[selected_user][key].saturnAD}}</div>
+							<div class="col">Saturn AD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].saturnAD_house">{{house}} ,</div></div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Saturn PD: {{planet_data[selected_user][key].saturnPD}}</div>
+							<div class="col">Saturn PD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].saturnPD_house">{{house}} ,</div></div>
+						</div>
+						<br>
+						<div class="row">
+							Saturn Comment: {{planet_data[selected_user][key].saturn_comment}}
+						</div>
+						<br><hr><br>
+
+						<!--Rahu -->
+							<div class="row">
+							<div class="col">Rahu RL: {{planet_data[selected_user][key].rahuRL}}</div>
+							<div class="col">Rahu NL: {{planet_data[selected_user][key].rahuNL}}</div>
+							<div class="col">Rahu SL: {{planet_data[selected_user][key].rahuSL}}</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Rahu MD: {{planet_data[selected_user][key].rahuMD}}</div>
+
+								<div class="col">Rahu MD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].rahuMD_house">{{house}} ,</div>
+								</div>
+							
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Rahu AD: {{planet_data[selected_user][key].rahuAD}}</div>
+							<div class="col">Rahu AD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].rahuAD_house">{{house}} ,</div></div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Rahu PD: {{planet_data[selected_user][key].rahuPD}}</div>
+							<div class="col">Rahu PD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].rahuPD_house">{{house}} ,</div></div>
+						</div>
+						<br>
+						<div class="row">
+							Rahu Comment: {{planet_data[selected_user][key].rahu_comment}}
+						</div>
+						<br><hr><br>
+
+						<!--Ketu -->
+								<div class="row">
+							<div class="col">Ketu RL: {{planet_data[selected_user][key].ketuRL}}</div>
+							<div class="col">Ketu NL: {{planet_data[selected_user][key].ketuNL}}</div>
+							<div class="col">Ketu SL: {{planet_data[selected_user][key].ketuSL}}</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Ketu MD: {{planet_data[selected_user][key].ketuMD}}</div>
+
+								<div class="col">Ketu MD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].ketuMD_house">{{house}} ,</div>
+								</div>
+							
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Ketu AD: {{planet_data[selected_user][key].ketuAD}}</div>
+							<div class="col">Ketu AD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].ketuAD_house">{{house}} ,</div></div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">Ketu PD: {{planet_data[selected_user][key].ketuPD}}</div>
+							<div class="col">Ketu PD (House Under Operation): <div ng-repeat="house in planet_data[selected_user][key].ketuPD_house">{{house}} ,</div></div>
+						</div>
+						<br>
+						<div class="row">
+							Ketu Comment: {{planet_data[selected_user][key].ketu_comment}}
+						</div>
+						<br><hr><br>
+				        
+				      </div>
+				    </div>
+				  </div>
+				</div>
+			</div>
+			
+
+			</div>
+
+		</div>
+
+
+		<div class="form-row m-2 justify-content-md-between">
+      <!--Add new info Button -->
+      <button type="button" ng-click="addNew_planet_info()" class="btn btn-outline-primary text-dark">
+        <a href="#!complete new user">Add New Planet Info</a>
+      </button>
+    </div>
+	</div>

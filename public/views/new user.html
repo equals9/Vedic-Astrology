@@ -1,0 +1,115 @@
+<div class="row">
+
+	<div class="col-md-auto">
+		<h3>New Client <small class="text-muted">Vedic Astrology</small></h3>
+	</div>
+		
+	<div class="w-100"></div>
+
+	<div class="col-md-auto">
+		<!-- Back Button -->
+		<button type="button" class="btn btn-outline-primary">
+			<a href="#/!" class="text-dark">Back</a>
+		</button>
+	</div>
+		
+</div>
+
+
+	<!-- New Client Form -->
+<div class="row justify-content-md-center m-sm-4" ng-controller="NewUser">
+	<form class="was-validated" novalidate>
+		<div class="form-row">
+
+			<!-- First Name -->
+			<div class="form-group col-md-6">
+				<label for="InputFirstName">First Name</label>
+				<input type="text" class="form-control" placeholder="First Name" ng-model="firstname" required>
+				<div class="invalid-feedback">
+        			Please enter first name
+      			</div>
+			</div>
+				
+			<!-- Last Name -->
+			<div class="form-group col-md-6">
+				<label for="InputLastName">Last Name</label>
+				<input type="text" class="form-control" placeholder="Last Name" ng-model="lastname" required>
+				<div class="invalid-feedback">
+        			Please enter last name
+      			</div>
+			</div>
+
+		</div>
+
+
+		<div class="form-row">
+
+			<!-- Email -->
+			<div class="form-group col-md-6">
+				<label for="InputEmail">Email Id</label>
+				<input type="text" class="form-control" placeholder="Email ID" ng-model="email_id" required>
+				<div class="invalid-feedback">
+        			Please enter a valid email
+      			</div>
+			</div>
+				
+			<!-- Phone No -->
+			<div class="form-group col-md-6">
+				<label for="Phone_no">Phone Number</label>
+				<input type="text" class="form-control" placeholder="Phone Number" ng-model="ph_no" required>
+				<div class="invalid-feedback">
+        			Please enter a phone no
+      			</div>
+			</div>
+
+		</div>
+
+		<div class="form-row">
+			<!-- Date of Birth -->
+			<div class="form-group col-md-auto">
+				<label for="DateOfBirth">Date of Birth</label>
+				<input type="date" class="form-control" ng-model="dateofbirth" required>
+				<div class="invalid-feedback">
+        			Please enter or choose date
+      			</div>
+			</div>
+
+			<!-- Time of birth-->
+			<div class="form-group col-md-auto">
+				<label for="TimeOfBirth">Time of Birth</label>
+
+				<div class="form-row">
+					<div class="form-group col-md-auto">
+						<input type="number" placeholder="HH" min="00" max="24" ng-model="hofbirth">
+					</div>
+
+					<div class="form-group col-md-auto">
+						<input type="number" placeholder="MM" min="00" max="60" ng-model="mofbirth">
+					</div>
+
+					<div class="form-group col-md-auto">
+						<input type="number" placeholder="SS" min="00" max="60" ng-model="sofbirth">
+					</div>
+				</div>
+			</div>
+
+			<!-- Place of birth -->
+			<div class="form-group col-md-auto">
+				<label for="PlaceOfBirth">Place of Birth</label>
+				<input type="text" class="form-control" placeholder="Place of birth" ng-model="placeofbirth" required>
+				<div class="invalid-feedback">
+        			Please enter a place
+      			</div>
+			</div>
+
+		</div>
+
+		<div class="form-row m-2 justify-content-md-between">
+			<!--Next Button -->
+			<button type="button" ng-click="insert_user_info()" class="btn btn-outline-primary text-dark">
+				<a href="#!complete new user">Next</a>
+			</button>
+		</div>
+
+	</form>
+</div>

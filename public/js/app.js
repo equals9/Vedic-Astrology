@@ -16,6 +16,11 @@ app.config(function($routeProvider) {
 		//controller: "NewUser"
 	})
 
+	.when('/view_user',{
+		templateUrl:"views/view_user.html",
+		//controller: "NewUser"
+	})
+
 	.otherwise({
 		templateUrl: "views/home.html"
 	});
